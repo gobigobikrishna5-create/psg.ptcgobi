@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Main Page</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+  }
+  .welcome {
+    text-align: center;
+    margin-top: 50px;
+  }
+</style>
+</head>
+<body>
+<h1>Welcome to the Main Page</h1>
+<div class="welcome" id="welcomeMessage"></div>
+
+<script>
+  const role = localStorage.getItem('role');
+  const welcomeDiv = document.getElementById('welcomeMessage');
+
+  if (role === 'admin') {
+    welcomeDiv.textContent = 'Hello, Admin! You are logged in.';
+  } else if (role === 'customer') {
+    welcomeDiv.textContent = 'Hello, Customer! You are logged in.';
+  } else {
+    // Not logged in, redirect to login page
+    window.location.href = 'index.html';
+  }
+</script>
+</body>
+</html>
